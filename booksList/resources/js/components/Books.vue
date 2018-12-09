@@ -1,87 +1,34 @@
 <template>
   <div>
 
-    <h2>Books</h2>
+    <bookForm :addOrEditBook="addOrEditBook" 
+              :book="book">
+    </bookForm>
 
-    <form class="mb-3"
-          @submit.prevent="addOrEditBook">
-      <div class="form-group">
-        <input type="text" 
-                class="form-control" 
-                placeholder="Book Title"
-                v-model="book.title">
-        <input type="text" 
-                class="form-control" 
-                placeholder="Author" 
-                v-model="book.author">
-        <input type="text" 
-                class="form-control" 
-                placeholder="Published Date" 
-                v-model="book.publishedDate">
-        <input type="text" 
-                class="form-control" 
-                placeholder="Genre" 
-                v-model="book.genre">
-      </div>
-      <button type="submit"
-              class="btn btn-light btn-block">
-        Save
-      </button>
-    </form>
+    <pagination :pagination="pagination" 
+                :fetchBooks="fetchBooks">
+    </pagination>
 
-    <nav aria-label="Page navigation example">
-
-      <ul class="pagination">
-        <li v-bind:class="[{disabled : !pagination.prev}]" 
-            class="page-item">
-          <a class="page-link" 
-              href="#"
-              @click="fetchBooks(pagination.prev)">
-            Previous
-          </a>
-        </li>
-
-        <li class="page-item disabled">
-          <a class="page-link text-dark" href="#">
-            Page {{ pagination.current_page }} of {{ pagination.last_page }}
-          </a>
-        </li>
-
-        <li v-bind:class="[{disabled : !pagination.next}]"
-            class="page-item">
-          <a class="page-link" 
-              href="#"
-              @click="fetchBooks(pagination.next)">
-            Next
-          </a>
-        </li>
-      </ul>
-
-    </nav>
-
-    <div class="card card-body mb-2" 
-          v-for="book in books" 
-          v-bind:key="book.id">
-      <h3>{{ book.title }}</h3>
-      <h5>{{ book.author }}</h5>
-      <small>{{ book.publishedDate }}</small>
-      <small>{{ book.genre }}</small>
-      <hr>
-      <button class="btn btn-light"
-              @click="editBook(book)">
-        Edit
-      </button>
-      <button class="btn btn-danger"
-              @click="deleteBook(book.id)">
-        Delete
-      </button>
-    </div>
+    <book v-for="(book, index) in books" :key="index" :book="book"
+          :editBook="editBook"
+          :deleteBook="deleteBook">
+    </book>
 
   </div>
 </template>
 
 <script>
+import BookForm   from './BookForm';
+import Book       from './Book';
+import Pagination from './Pagination';
+
 export default {
+  components : {
+    BookForm,
+    Book,
+    Pagination
+  },
+
   data() {
     return {
       books     : [],
