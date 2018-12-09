@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="nav-bar">
 
       <ul class="pagination">
         <li v-bind:class="[{disabled : !pagination.prev}]" 
@@ -35,4 +35,14 @@ export default {
   props : ['pagination', 'fetchBooks']
 }
 </script>
+
+<style scoped>
+  .nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+</style>
+
 
