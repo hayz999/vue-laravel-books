@@ -1,7 +1,7 @@
 # My Favorite Books App
 
 ## Video (if local setup instructions are not clear)
-![Demo](https://drive.google.com/file/d/1zc5dA3ZH-xngeH-jHFowUToM3JeJhF24/view?usp=sharing)
+[Demo](https://drive.google.com/file/d/1zc5dA3ZH-xngeH-jHFowUToM3JeJhF24/view?usp=sharing)
 
 ## Local setup
 ```bash
@@ -47,4 +47,4 @@ php artisan serve
 
 ## Resources used
   - Laravel and Vue docs
-  - Traversy Media on Youtube[link](https://www.youtube.com/watch?v=DJ6PD_jBtU0)
+  - [Traversy Media on Youtube](https://www.youtube.com/watch?v=DJ6PD_jBtU0)
