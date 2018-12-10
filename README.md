@@ -1,4 +1,5 @@
 # My Favorite Books App
+![preview](preview.png)
 
 ## Video (if local setup instructions are not clear)
 [Demo](https://drive.google.com/file/d/1zc5dA3ZH-xngeH-jHFowUToM3JeJhF24/view?usp=sharing)
